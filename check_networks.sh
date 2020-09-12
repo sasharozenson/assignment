@@ -51,7 +51,7 @@ function sort_and_print() {
     echo -n "$network: " 
     for decip in $(echo "$ntwvar" | awk -F',' /$network/'{print $3}') ; do
       if [ $declowip -gt $decip ]; then
-	declowip=$decip ; "now declowip: $decip"
+	declowip=$decip
 	binlowip=$(awk -F'/' /$declowip/'{print $1;exit;}' $ntwlog)
       fi
     done
