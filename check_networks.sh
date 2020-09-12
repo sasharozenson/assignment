@@ -10,6 +10,14 @@ SSHCMD="/usr/bin/ssh -o ConnectTimeout=5 -o BatchMode=yes -o StrictHostKeyChecki
 hstout="/tmp/hostname.ips"
 ntwlog="/tmp/networks.log"
 
+#
+check_empty() {
+  if [ -z $1 ] ; then
+    echo "List is empty, please provide a quoted list, separated with spaces, example: \"hostname1 hostname2 hostname3\""
+    exit 1
+  fi
+}
+
 # Iterate over all hosts from STDIN and write in $ntwlog
 function get_ip() {
   for host in $1 ; do 
@@ -61,6 +69,7 @@ function sort_and_print() {
 }
 
 # Make it work
+check_empty "$1"
 get_ip "$1"
 get_networks
 get_decimal_ip
