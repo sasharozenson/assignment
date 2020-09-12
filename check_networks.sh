@@ -10,7 +10,7 @@ SSHCMD="/usr/bin/ssh -o ConnectTimeout=5 -o BatchMode=yes -o StrictHostKeyChecki
 hstout="/tmp/hostname.ips"
 ntwlog="/tmp/networks.log"
 
-#
+# List assertion
 check_empty() {
   if [ -z $1 ] ; then
     echo "List is empty, please provide a quoted list, separated with spaces, example: \"hostname1 hostname2 hostname3\""
