@@ -56,7 +56,8 @@ function sort_and_print() {
 
   for network in $(echo "$ntwvar" | awk -F',' '{print $2}' | sort -u ) ; do
     declowip="9999999999"
-    echo -n "$network: " 
+    prefix=$(echo "$ntwvar" | awk -F',' /$network/'{print $1;exit;}' | cut -d'/' -f'2' )
+    echo -n "$network/$prefix: " 
     for decip in $(echo "$ntwvar" | awk -F',' /$network/'{print $3}') ; do
       if [ $declowip -gt $decip ]; then
 	declowip=$decip
