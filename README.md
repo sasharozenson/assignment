@@ -1,6 +1,7 @@
 * ipcalc and sipcalc must be installed on the executing host
 * Script tested on CentOS 7 only
 * Supports all prefixes therefore expect results such as: "Network: 172.16.64.0 172.16.72.83" in case prefix is 19
+* python version of the same can be written upon request
 
 Usage:
 
